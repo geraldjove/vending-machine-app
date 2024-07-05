@@ -6,7 +6,7 @@ import vue from "@vitejs/plugin-vue";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  base: "/vending-machine-app",
+  base: "/vending-machine-app/",
   server: {
     port: 3000,
   },
