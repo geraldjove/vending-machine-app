@@ -170,9 +170,8 @@ const getChange = (bill, owed) => {
         <div class="sm:col-span-12 flex justify-center items-center rounded-xl">
           <div class="w-[50%]">
             <img
-              src="./assets/svg/cash-machine-svgrepo-com-2.svg"
+              src="./assets/img/cash-machine-svgrepo-com-2.png"
               alt="cash-slot"
-              class="svg-image"
             />
           </div>
         </div>
