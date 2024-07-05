@@ -10,6 +10,32 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+## This project is using latest Node v22.4.0
+
+### installs fnm (Fast Node Manager)
+
+```sh
+winget install Schniz.fnm
+```
+
+### download and install Node.js
+
+```sh
+fnm use --install-if-missing 22
+```
+
+### verifies the right Node.js version is in the environment
+
+```sh
+node -v # should print `v22.4.0`
+```
+
+### verifies the right NPM version is in the environment
+
+```sh
+npm -v # should print `10.8.1`
+```
+
 ## Project Setup
 
 ```sh
@@ -34,9 +60,14 @@ This project uses Tailwind CSS for styling. Make sure to have Tailwind CSS prope
 
 For more information on Tailwind CSS, visit [Tailwind CSS Documentation.](https://v2.tailwindcss.com/docs/guides/vue-3-vite)
 
-````sh
+### Install Tailwind via npm
+
+```sh
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+```
+
+### Generate your tailwind.config.js and postcss.config.js files
 
 ```sh
 npx tailwindcss init -p
-````
+```
