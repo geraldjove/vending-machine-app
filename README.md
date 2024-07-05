@@ -1,6 +1,6 @@
 # vending-machine-app
 
-This template should help get you started developing with Vue 3 in Vite.
+Explore a sleek vending machine app crafted with Tailwind CSS and Vue.js, ensuring seamless usability across desktop and mobile platforms. This intuitive application calculates change effortlessly, making transactions smooth and efficient. Visit the live site to experience modern convenience in vending: [Vending Machine App](https://geraldjove.github.io/vending-machine-app/).
 
 ## Recommended IDE Setup
 
@@ -10,7 +10,7 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## This project is using latest Node v22.4.0
+## This project is using the latest Node v22.4.0
 
 ### installs fnm (Fast Node Manager)
 
