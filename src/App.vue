@@ -29,7 +29,6 @@ const getChange = (bill, owed) => {
 
   // Reset value each time the Pay button is clicked
 
-  changeText.value = "";
   thousandsText.value = "";
   fiveHundredsText.value = "";
   twoHundredsText.value = "";
