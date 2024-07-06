@@ -18,12 +18,14 @@ const fiveCentsText = ref("");
 const oneCentText = ref("");
 
 const getChange = (bill, owed) => {
+  if (isNaN(bill) || isNaN(owed) || bill < 0 || owed < 0 || owed > 1000) {
+    changeText.value =
+      "Please enter valid numbers. Owed amount should be between 0 and 1000.";
+    return;
+  }
+
   let change = parseFloat(bill) - parseFloat(owed);
   changeText.value = change.toFixed(2);
-
-  if (isNaN(change)) {
-    changeText.value = "Please enter a valid number";
-  }
 
   console.log(`Change: ${changeText.value}`);
 
@@ -44,6 +46,12 @@ const getChange = (bill, owed) => {
   oneCentText.value = "";
 
   // End of reset values
+
+  if (isNaN(bill) || isNaN(owed) || bill < 0 || owed < 0 || owed > 1000) {
+    changeText.value =
+      "Please enter valid numbers. Owed amount should be between 0 and 1000.";
+    return;
+  }
 
   if (change < 0) {
     changeText.value = "The bill amount is less than the amount owed";
@@ -104,7 +112,31 @@ const getChange = (bill, owed) => {
     if (oneCent > 0) console.log(`1 centavo: ${oneCent}`);
   }
 };
+
+const setBill = (amount) => {
+  bill.value = amount;
+
+  // Reset value each time the Pay button is clicked
+  owed.value = "";
+  changeText.value = "";
+  thousandsText.value = "";
+  fiveHundredsText.value = "";
+  twoHundredsText.value = "";
+  hundredsText.value = "";
+  fiftiesText.value = "";
+  twentiesText.value = "";
+  tensText.value = "";
+  fivesText.value = "";
+  onesText.value = "";
+  twentyFiveCentsText.value = "";
+  tenCentsText.value = "";
+  fiveCentsText.value = "";
+  oneCentText.value = "";
+
+  // End of reset values
+};
 </script>
+
 <template>
   <div class="grid sm:grid-cols-12 min-h-[100vh] shadow-lg">
     <div
@@ -181,25 +213,57 @@ const getChange = (bill, owed) => {
             class="flex flex-col justify-center items-center"
           >
             <div class="w-full flex items-center justify-center my-2">
-              <label
-                for="bill"
-                class="uppercase text-gray-200 roboto-font font-bold mr-2 text-lg"
-                >Bill:
-              </label>
-              <div class="relative">
-                <span
-                  v-if="bill"
-                  class="absolute left-2 top-1/2 transform -translate-y-1/2 text-black roboto-font font-bold text-lg"
-                  >₱</span
+              <div
+                class="w-full min-h-[150px] grid sm:grid-cols-3 grid-cols-2 gap-3"
+              >
+                <div
+                  class="shiny-button text-black font-bold rounded-lg flex justify-center items-center cursor-pointer"
+                  @click="setBill(1000)"
                 >
-                <input
-                  type="text"
-                  name="bill"
-                  id="bill"
-                  v-model="bill"
-                  class="rounded-lg uppercase orbitron-font bg-green-500 text-black placeholder-black font-bold px-5 text-center p-2 sm:w-full w-[50vw]"
-                  placeholder="Pls enter bill amt"
-                />
+                  ₱1000
+                </div>
+                <div
+                  class="shiny-button font-bold rounded-lg flex justify-center items-center cursor-pointer"
+                  @click="setBill(500)"
+                >
+                  ₱500
+                </div>
+                <div
+                  class="shiny-button font-bold rounded-lg flex justify-center items-center cursor-pointer"
+                  @click="setBill(200)"
+                >
+                  ₱200
+                </div>
+                <div
+                  class="shiny-button font-bold rounded-lg flex justify-center items-center cursor-pointer"
+                  @click="setBill(100)"
+                >
+                  ₱100
+                </div>
+                <div
+                  class="shiny-button text-black font-bold rounded-lg flex justify-center items-center cursor-pointer"
+                  @click="setBill(50)"
+                >
+                  ₱50
+                </div>
+                <div
+                  class="shiny-button text-black font-bold rounded-lg flex justify-center items-center cursor-pointer"
+                  @click="setBill(20)"
+                >
+                  ₱20
+                </div>
+                <div
+                  class="shiny-button text-black font-bold rounded-lg flex justify-center items-center cursor-pointer"
+                  @click="setBill(0)"
+                >
+                  ₱0
+                </div>
+                <div
+                  class="shiny-button text-black font-bold rounded-lg flex justify-center items-center cursor-pointer sm:col-span-2"
+                  @click="setBill()"
+                >
+                  CLEAR
+                </div>
               </div>
             </div>
             <div class="w-full flex items-center justify-center my-2">
